@@ -85,13 +85,13 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($subtypes as $subtypes)
+                                                @foreach ($subtypes as $subtype)
                                                     <tr>
-                                                        <td>{{$subtypes->id}}</td>
-                                                        <td>{{$subtypes->vehicleSubType}}</td>
+                                                        <td>{{$subtype->id}}</td>
+                                                        <td>{{$subtype->vehicleSubType}}</td>
                                                         <td>2</td>
                                                         <td>
-                                                            {!!Form::open(['route' =>['subtype.delete', $subtypes->id],'method'=>'delete'])!!}
+                                                            {!!Form::open(['route' =>['subtype.delete', $subtype->id],'method'=>'delete'])!!}
                                                             {{Form::submit('Delete',['class'=>'btn btn-link'])}}
                                                             {!!Form::close()!!}
                                                         </td>
@@ -136,7 +136,7 @@
                 <!--vehical type add form-->
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">New Type</h3>
+                        <h3 class="box-title">New Vehicle Type</h3>
                     </div>
                     {!! Form::open(['action' => 'SettingsController@storetype','method'=>'POST','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
                     <div class="box-body">
@@ -161,7 +161,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">New Type</h3>
+                        <h3 class="box-title">New Sub Type</h3>
                     </div>
                     {!! Form::open(['action' => 'SettingsController@storesubtype','method'=>'POST','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
                     <div class="box-body">
