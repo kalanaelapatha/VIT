@@ -45,7 +45,7 @@ class SupplierController extends Controller
     {
         $this->validate($request,[
             'name'=> 'required',
-            'contactnum'=> 'required',
+            'contactnum'=> 'required|max:10',
             'address'=>'nullable'
         ]);
 

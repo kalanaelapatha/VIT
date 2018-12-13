@@ -19,7 +19,9 @@ class SettingsController extends Controller
 
         $brand=brands::all();
         $types=types::all();
-        return view('Settings.settings')->with(['brands'=>$brand,'types'=>$types]);
+        $subtypes=subtypes::all();
+
+        return view('Settings.settings')->with(['brands'=>$brand,'types'=>$types,'subtypes'=>$subtypes]);
     }
 
     public function storebrand(Request $request)
@@ -58,7 +60,7 @@ class SettingsController extends Controller
         ]);
 
         $subtype=new subtypes;
-        $subtype->name=$request->input('name');
+        $subtype->vehicleSubType=$request->input('name');
         $subtype->save();
 
         return redirect('/settings')->with('success','Sub Type Added');;

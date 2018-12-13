@@ -55,7 +55,7 @@
                                             @foreach ($types as $type)
                                                 <tr>
                                                     <td>{{$type->id}}</td>
-                                                    <td>{{$type->vehicleType}}</td>
+                                                    <td>{{$type->vehicleType }}</td>
                                                     <td>2</td>
                                                     <td> delet</td>
                                                 </tr>
@@ -77,10 +77,10 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($brands as $brand)
+                                                @foreach ($subtype as $subtypes)
                                                     <tr>
-                                                        <td>{{$brand->id}}</td>
-                                                        <td>{{$brand->name}}</td>
+                                                        <td>{{$subtypes->id}}</td>
+                                                        <td>{{$subtypes->vehicleSubType}}</td>
                                                         <td>2</td>
                                                         <td> delet</td>
                                                     </tr>
@@ -147,25 +147,26 @@
                 <br>
                 <!-- new sub type add form -->
 
-                <div class="box box-success">
+                <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">New Vehicle Sub Type</h3>
+                        <h3 class="box-title">New Type</h3>
                     </div>
-                    <form class="form-horizontal">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-2 control-label">Sub Type </label>
-
-                                <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                </div>
+                    {!! Form::open(['action' => 'SettingsController@storesubtype','method'=>'POST','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
+                    <div class="box-body">
+                        <div class="form-group">
+                            {{ Form::label('type','Type',['class'=>'col-sm-2 control-label']) }}
+                            <div class="col-sm-10">
+                                {{Form::text('name','',['class'=> 'form-control','placeholde'=>'Title' ])}}
                             </div>
+                        </div>
 
-                        </div>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-info pull-right">Add</button>
-                        </div>
-                    </form>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        {{Form::submit('Add',['class'=>'btn btn-info pull-right"','name' => 'submitbutton', 'value' => 'save'])}}
+                    </div>
+                    <!-- /.box-footer -->
+                    {!! Form::close() !!}
                 </div>
 
             </div>
