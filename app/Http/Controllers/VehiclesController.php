@@ -36,12 +36,6 @@ class VehiclesController extends Controller
         return view('Vehicles.create')->with('suppliers',$suppliers);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request,[
