@@ -19,8 +19,16 @@
 
     {{Html::style('dist/css/skins/skin-blue.min.css')}}
 
+    <!-- data tables -->
+    {{Html::style('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- bootstrap datepicker -->
+    {{Html::style('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}
+
+
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -92,6 +100,9 @@
 
 <!-- AdminLTE for demo purposes -->
 {{Html::script('dist/js/demo.js')}}
+<!-- date picker -->
+{{Html::script('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}
+
 
 
 @yield('page_JavaScrips')
