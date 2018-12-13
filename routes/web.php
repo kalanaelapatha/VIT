@@ -17,10 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/settings','SettingsController@index');
 Route::post('/brands','SettingsController@storebrand');
 Route::post('/types','SettingsController@storetype');
 Route::post('/subtypes','SettingsController@storesubtype');
+
+Route::delete('brands/{id}',array('uses' => 'SettingsController@deletebrand', 'as' => 'brand.delete'));
+Route::delete('types/{id}',array('uses' => 'SettingsController@deletetype', 'as' => 'type.delete'));
+Route::delete('subtypes/{id}',array('uses' => 'SettingsController@deletesubtype', 'as' => 'subtype.delete'));
+
 Route::resource('vehicles','VehiclesController');
 Route::resource('suppliers','SupplierController');
 

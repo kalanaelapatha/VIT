@@ -37,6 +37,27 @@ class SettingsController extends Controller
 
         return redirect('/settings')->with('success','Brand Added');;
     }
+
+    public function deletebrand($id){
+
+        $brand=brands::find($id);
+        $brand->delete();
+        return redirect('/settings')->with('success','Brand Removed');
+    }
+
+    public function deletetype($id){
+
+        $type=types::find($id);
+        $type->delete();
+        return redirect('/settings')->with('success','Type Removed');
+    }
+
+    public function deletesubtype($id){
+
+        $subtype=subtypes::find($id);
+        $subtype->delete();
+        return redirect('/settings')->with('success','Sub-type Removed');
+    }
         // Handele the Vehicle Type
     public function storetype(Request $request)
     {

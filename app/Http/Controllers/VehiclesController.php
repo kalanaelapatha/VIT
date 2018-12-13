@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicles;
+use App\Models\types;
+use App\Models\subtypes;
 use App\Models\suppliers;
 use Illuminate\Http\Request;
 
@@ -33,7 +35,9 @@ class VehiclesController extends Controller
     public function create()
     {
         $suppliers=suppliers::all();
-        return view('Vehicles.create')->with('suppliers',$suppliers);
+        $types=types::all();
+        $subtypes=subtypes::all();
+        return view('Vehicles.create')->with(['suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes]);
     }
 
     public function store(Request $request)
@@ -43,13 +47,17 @@ class VehiclesController extends Controller
             'insurance_expairy' => 'required',
             'licence_expairy'=>'required',
             'fitness_expairy' => 'required',
-            'supplier_id' => 'required'
+            'supplier_id' => 'required',
+            'subtype_id'=>'required',
+            'type_id'=>'required'
         ]);
 
 
         $vehicle=new Vehicles;
         $vehicle->vehicle_no=$request->input('vehicle_no');
         $vehicle->supplier_id=$request->input('supplier_id');
+        $vehicle->type_id=$request->input('type_id');
+        $vehicle->subtype_id=$request->input('subtype_id');
 
         $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
         $vehicle->insurance_expairy=$inputdateInsurance;
@@ -61,7 +69,7 @@ class VehiclesController extends Controller
         $vehicle->fitness_expairy=$inputdateFitness;
         $vehicle->save();
 
-        return redirect('vehicles/create')->with('success','Vehicle Added');
+        return redirect('vehicles')->with('success','Vehicle Added');
     }
 
 
@@ -86,7 +94,11 @@ class VehiclesController extends Controller
     public function edit($id)
     {
         $vehicle= Vehicles::find($id);
-        return view ('Vehicles.edit')->with('vehicle',$vehicle);
+        $suppliers=suppliers::all();
+        $types=types::all();
+        $subtypes=subtypes::all();
+        return view('Vehicles.edit')->with(['vehicle'=>$vehicle,'suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes]);
+
     }
 
     /**
@@ -102,13 +114,19 @@ class VehiclesController extends Controller
             'vehicle_no'=> 'required',
             'insurance_expairy' => 'required',
             'licence_expairy'=>'required',
-            'fitness_expairy' => 'required'
+            'fitness_expairy' => 'required',
+            'supplier_id' => 'required',
+            'subtype_id'=>'required',
+            'type_id'=>'required'
         ]);
 
 
         $inputdate=date("Y-m-d",strtotime($request->input('insurance_expairy')));
         $vehicle=Vehicles::find($id);
         $vehicle->vehicle_no=$request->input('vehicle_no');
+        $vehicle->supplier_id=$request->input('supplier_id');
+        $vehicle->type_id=$request->input('type_id');
+        $vehicle->subtype_id=$request->input('subtype_id');
 
         $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
         $vehicle->insurance_expairy=$inputdate;

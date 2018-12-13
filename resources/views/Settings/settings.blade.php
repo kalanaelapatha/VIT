@@ -34,7 +34,11 @@
                                                  <td>{{$brand->id}}</td>
                                                  <td>{{$brand->name}}</td>
                                                  <td>2</td>
-                                                 <td> delet</td>
+                                                 <td>
+                                                     {!!Form::open(['route' =>['brand.delete', $brand->id],'method'=>'delete'])!!}
+                                                     {{Form::submit('Delete',['class'=>'btn btn-link'])}}
+                                                     {!!Form::close()!!}
+                                                 </td>
                                              </tr>
                                              @endforeach
                                              </tbody>
@@ -57,7 +61,11 @@
                                                     <td>{{$type->id}}</td>
                                                     <td>{{$type->vehicleType }}</td>
                                                     <td>2</td>
-                                                    <td> delet</td>
+                                                    <td>
+                                                        {!!Form::open(['route' =>['type.delete', $type->id],'method'=>'delete'])!!}
+                                                        {{Form::submit('Delete',['class'=>'btn btn-link'])}}
+                                                        {!!Form::close()!!}
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -77,12 +85,16 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($subtype as $subtypes)
+                                                @foreach ($subtypes as $subtypes)
                                                     <tr>
                                                         <td>{{$subtypes->id}}</td>
                                                         <td>{{$subtypes->vehicleSubType}}</td>
                                                         <td>2</td>
-                                                        <td> delet</td>
+                                                        <td>
+                                                            {!!Form::open(['route' =>['subtype.delete', $subtypes->id],'method'=>'delete'])!!}
+                                                            {{Form::submit('Delete',['class'=>'btn btn-link'])}}
+                                                            {!!Form::close()!!}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

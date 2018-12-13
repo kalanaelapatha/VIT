@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\suppliers;
 use Illuminate\Http\Request;
 use App\Models\Vehicles;
 
@@ -26,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $vehicles=Vehicles::count();
-        return view('home')->with('vehicles',$vehicles);
+        $suppliers=suppliers::count();
+        return view('home')->with(['vehicles'=>$vehicles,'suppliers'=>$suppliers]);
     }
 }

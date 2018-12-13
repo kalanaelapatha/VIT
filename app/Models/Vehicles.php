@@ -18,6 +18,13 @@ class Vehicles extends Model
         return $this->belongsTo('App\Models\suppliers','supplier_id');
 
     }
+
+
+    public function type(){
+
+        return $this->belongsTo('App\Models\types','type_id');
+
+    }
 }
 
 

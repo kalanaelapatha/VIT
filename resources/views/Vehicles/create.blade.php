@@ -28,16 +28,49 @@
                         {{Form::label('supplier_id','Supplier',['class'=>'col-sm-2 control-label']) }}
                         <div class="col-sm-8">
                             <select class="form-control" id="supplier_id" name="supplier_id">
-                                <option disabled>Select a supplier</option>
+                                <option selected="selected" disabled>Select a supplier</option>
                                 @foreach($suppliers as $supplier)
                                     <option value="{{$supplier->id}}">{{$supplier->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <small>New Supplier ? <a href='/settings' target="_blank">Add Supplier</a></small>
                     </div>
                 @else
                    <center> <h4 class="text-red">You need a supplier to add a vehicle</h4></center>
+                    <br>
+                @endif
+
+                @if(count($types)>0)
+                    <div class="form-group">
+                        {{Form::label('type_id','Type',['class'=>'col-sm-2 control-label']) }}
+                        <div class="col-sm-8">
+                            <select class="form-control" id="type_id" name="type_id">
+                                <option selected="selected" disabled>Select a Type</option>
+                                @foreach($types as $type)
+                                    <option value="{{$type->id}}">{{$type->vehicleType}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                @else
+                    <center> <h4 class="text-red">You need a Types to add a vehicle</h4></center>
+                    <br>
+                @endif
+
+                @if(count($subtypes)>0)
+                    <div class="form-group">
+                        {{Form::label('subtype_id','Sub Type',['class'=>'col-sm-2 control-label']) }}
+                        <div class="col-sm-8">
+                            <select class="form-control" id="subtype_id" name="subtype_id">
+                                <option selected="selected" disabled>Select a Type</option>
+                                @foreach($subtypes as $subtype)
+                                    <option value="{{$subtype->id}}">{{$subtype-> vehicleSubType}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                @else
+                    <center> <h4 class="text-red">You need a Sub types to add a vehicle</h4></center>
                     <br>
                 @endif
 
@@ -79,11 +112,14 @@
 
             </div>
             <!-- /.box-body -->
-            @if(count($suppliers)>0)
+
             <div class="box-footer">
+                @if(count($suppliers)>0 && count($types)>0 )
                 {{Form::submit('Add',['class'=>'btn btn-info pull-right"','name' => 'submitbutton', 'value' => 'save'])}}
+                @endif
+                <small class="pull-right">Want a New category ? <a href='/settings' target="_blank">Go to settings</a></small>
             </div>
-            @endif
+
             <!-- /.box-footer -->
             {!! Form::close() !!}
         </div>
