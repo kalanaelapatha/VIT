@@ -12,4 +12,9 @@ class types extends Model
     public $primaryKey='id';
     //Timestamps
     public $timestamps=true;
+
+    public function vehicles(){
+
+        return $this->hasMany('App\Models\Vehicles','id');
+    }
 }

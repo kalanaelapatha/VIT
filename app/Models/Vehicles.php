@@ -25,6 +25,18 @@ class Vehicles extends Model
         return $this->belongsTo('App\Models\types','type_id');
 
     }
+
+    public function subtype(){
+
+        return $this->belongsTo('App\Models\subtypes','subtype_id');
+
+    }
+
+    public function brand(){
+
+        return $this->belongsTo('App\Models\brands','brand_id');
+
+    }
 }
 
 

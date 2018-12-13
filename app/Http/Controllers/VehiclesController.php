@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicles;
 use App\Models\types;
+use App\Models\brands;
 use App\Models\subtypes;
 use App\Models\suppliers;
 use Illuminate\Http\Request;
@@ -36,8 +37,9 @@ class VehiclesController extends Controller
     {
         $suppliers=suppliers::all();
         $types=types::all();
+        $brands=brands::all();
         $subtypes=subtypes::all();
-        return view('Vehicles.create')->with(['suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes]);
+        return view('Vehicles.create')->with(['suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes,'brands'=>$brands]);
     }
 
     public function store(Request $request)
@@ -49,13 +51,15 @@ class VehiclesController extends Controller
             'fitness_expairy' => 'required',
             'supplier_id' => 'required',
             'subtype_id'=>'required',
-            'type_id'=>'required'
+            'type_id'=>'required',
+            'supplier_id'=>'required'
         ]);
 
 
         $vehicle=new Vehicles;
         $vehicle->vehicle_no=$request->input('vehicle_no');
         $vehicle->supplier_id=$request->input('supplier_id');
+        $vehicle->brand_id=$request->input('brand_id');
         $vehicle->type_id=$request->input('type_id');
         $vehicle->subtype_id=$request->input('subtype_id');
 
