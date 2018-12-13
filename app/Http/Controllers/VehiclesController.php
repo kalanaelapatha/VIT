@@ -129,6 +129,7 @@ class VehiclesController extends Controller
         $vehicle=Vehicles::find($id);
         $vehicle->vehicle_no=$request->input('vehicle_no');
         $vehicle->supplier_id=$request->input('supplier_id');
+        $vehicle->brand_id=$request->input('brand_id');
         $vehicle->type_id=$request->input('type_id');
         $vehicle->subtype_id=$request->input('subtype_id');
 
