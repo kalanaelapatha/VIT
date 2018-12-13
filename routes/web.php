@@ -16,15 +16,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/settings','SettingsController@index');
-
 Route::post('/brands','SettingsController@storebrand');
-
+Route::post('/types','SettingsController@storetype');
+Route::post('/subtypes','SettingsController@storesubtype');
 Route::resource('vehicles','VehiclesController');
-
 Route::resource('suppliers','SupplierController');
 
 
