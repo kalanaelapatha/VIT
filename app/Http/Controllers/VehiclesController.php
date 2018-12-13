@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicles;
+use App\Models\suppliers;
 use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
@@ -31,7 +32,8 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        return view('Vehicles.create');
+        $suppliers=suppliers::all();
+        return view('Vehicles.create')->with('suppliers',$suppliers);
     }
 
     /**
@@ -46,16 +48,17 @@ class VehiclesController extends Controller
             'vehicle_no'=> 'required',
             'insurance_expairy' => 'required',
             'licence_expairy'=>'required',
-            'fitness_expairy' => 'required'
+            'fitness_expairy' => 'required',
+            'supplier_id' => 'required'
         ]);
 
 
-        $inputdate=date("Y-m-d",strtotime($request->input('insurance_expairy')));
         $vehicle=new Vehicles;
         $vehicle->vehicle_no=$request->input('vehicle_no');
+        $vehicle->supplier_id=$request->input('supplier_id');
 
         $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
-        $vehicle->insurance_expairy=$inputdate;
+        $vehicle->insurance_expairy=$inputdateInsurance;
 
         $inputdateLicences=date("Y-m-d",strtotime($request->input('licence_expairy')));
         $vehicle->licence_expairy=$inputdateLicences;

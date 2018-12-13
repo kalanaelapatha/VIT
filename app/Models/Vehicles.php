@@ -12,4 +12,12 @@ class Vehicles extends Model
     public $primaryKey='id';
     //Timestamps
     public $timestamps=true;
+
+    public function supplier(){
+
+        return $this->belongsTo('App\Models\suppliers','supplier_id');
+
+    }
 }
+
+

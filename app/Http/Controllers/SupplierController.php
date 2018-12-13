@@ -45,6 +45,7 @@ class SupplierController extends Controller
     {
         $this->validate($request,[
             'name'=> 'required',
+            'contactnum'=> 'required',
             'address'=>'nullable'
         ]);
 
@@ -121,7 +122,7 @@ class SupplierController extends Controller
     {
         $supplier = suppliers::find($id);
         $supplier-> delete();
-        return redirect('/supplier')->with('success','Post  Removed');
+        return redirect('/suppliers')->with('success','Supplier  Removed');
 
     }
 }

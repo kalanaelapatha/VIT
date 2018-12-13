@@ -13,5 +13,9 @@ class suppliers extends Model
     //Timestamps
     public $timestamps=true;
 
+    public function vehicles(){
+
+        return $this->hasMany('App\Models\Vehicles','id');
+    }
 
 }

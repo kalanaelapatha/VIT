@@ -14,6 +14,7 @@
                 <thead>
                     <tr>
                         <th>Vehicle No</th>
+                        <th>Supplier</th>
                         <th>Licence Expiry Date</th>
                         <th>Insurance Expiry Date</th>
                         <th>Fitness Expiry Date</th>
@@ -24,6 +25,7 @@
                     @foreach ($vehicles as $vehicle)
                         <tr>
                             <td>{{$vehicle->vehicle_no}}</td>
+                            <td>{{$vehicle->supplier->name}}</td>
                             <td>{{$vehicle->insurance_expairy}}</td>
                             <td>{{$vehicle->licence_expairy}}</td>
                             <td>{{$vehicle->fitness_expairy}}</td>
