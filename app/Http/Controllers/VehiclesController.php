@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicles;
 use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class VehiclesController extends Controller
      */
     public function index()
     {
-        //
+        $vehicles=Vehicles::all();
+        return view('Vehicles.index')->with('vehicles',$vehicles);
     }
 
     /**
@@ -23,7 +31,7 @@ class VehiclesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Vehicles.create');
     }
 
     /**
@@ -34,8 +42,32 @@ class VehiclesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'vehicle_no'=> 'required',
+            'insurance_expairy' => 'required',
+            'licence_expairy'=>'required',
+            'fitness_expairy' => 'required'
+        ]);
+
+
+        $inputdate=date("Y-m-d",strtotime($request->input('insurance_expairy')));
+        $vehicle=new Vehicles;
+        $vehicle->vehicle_no=$request->input('vehicle_no');
+
+        $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
+        $vehicle->insurance_expairy=$inputdate;
+
+        $inputdateLicences=date("Y-m-d",strtotime($request->input('licence_expairy')));
+        $vehicle->licence_expairy=$inputdateLicences;
+
+        $inputdateFitness=date("Y-m-d",strtotime($request->input('fitness_expairy')));
+        $vehicle->fitness_expairy=$inputdateFitness;
+        $vehicle->save();
+
+        return redirect('vehicles/create')->with('success','Vehicle Added');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -56,7 +88,8 @@ class VehiclesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vehicle= Vehicles::find($id);
+        return view ('Vehicles.edit')->with('vehicle',$vehicle);
     }
 
     /**
@@ -68,7 +101,29 @@ class VehiclesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'vehicle_no'=> 'required',
+            'insurance_expairy' => 'required',
+            'licence_expairy'=>'required',
+            'fitness_expairy' => 'required'
+        ]);
+
+
+        $inputdate=date("Y-m-d",strtotime($request->input('insurance_expairy')));
+        $vehicle=Vehicles::find($id);
+        $vehicle->vehicle_no=$request->input('vehicle_no');
+
+        $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
+        $vehicle->insurance_expairy=$inputdate;
+
+        $inputdateLicences=date("Y-m-d",strtotime($request->input('licence_expairy')));
+        $vehicle->licence_expairy=$inputdateLicences;
+
+        $inputdateFitness=date("Y-m-d",strtotime($request->input('fitness_expairy')));
+        $vehicle->fitness_expairy=$inputdateFitness;
+        $vehicle->save();
+
+        return redirect('vehicles')->with('success','Vehicle Updated');
     }
 
     /**
@@ -79,6 +134,8 @@ class VehiclesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Vehicles=Vehicles::find($id);
+        $Vehicles->delete();
+        return redirect('/vehicles')->with('success','Post Removed');
     }
 }

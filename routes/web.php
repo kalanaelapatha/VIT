@@ -23,6 +23,8 @@ Route::get('/settings','SettingsController@index');
 
 Route::post('/brands','SettingsController@storebrand');
 
+Route::resource('vehicles','VehiclesController');
+
 Route::resource('suppliers','SupplierController');
 
 
