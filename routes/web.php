@@ -23,4 +23,6 @@ Route::get('/settings','SettingsController@index');
 
 Route::post('/brands','SettingsController@storebrand');
 
+Route::resource('suppliers','SupplierController');
+
 

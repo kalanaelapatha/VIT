@@ -24,7 +24,9 @@
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Add a Supplier</a></li>
+                    <li><a href="/suppliers/create">Add Supplier</a></li>
+                    <li><a href="/suppliers">View Suppliers</a></li>
+
                 </ul>
             </li>
             <li><a href="settings"><i class="fa fa-link"></i> <span>Settings</span></a></li>

@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\suppliers;
 
 class SupplierController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,10 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        $supplier=suppliers::all();
+
+        return view('Supplier.showsupplier')->with('supplier',$supplier);
+
     }
 
     /**
@@ -23,7 +32,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('Supplier.AddSupplier');
     }
 
     /**
@@ -34,7 +43,19 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=> 'required',
+            'address'=>'nullable'
+        ]);
+
+        $supplier=new suppliers;
+
+        $supplier->name=$request->input('name');
+        $supplier->address=$request->input('address');
+        $supplier->contactnum=$request->input('contactnum');
+
+        $supplier->save();
+        return redirect('/suppliers')->with('success','Suppiler Added');
     }
 
     /**
@@ -56,7 +77,10 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplier=suppliers::find($id);
+        //Check for correct user
+        return view('Supplier.EditSupplier')->with('suppliers',$supplier);
+
     }
 
     /**
@@ -68,7 +92,23 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=> 'required',
+            'address'=>'nullable'
+        ]);
+
+        $supplier =suppliers::find($id);
+
+        $supplier->name=$request->input('name');
+        $supplier->address=$request->input('address');
+        $supplier->contactnum=$request->input('contactnum');
+
+        $supplier->save();
+
+
+        return redirect('/suppliers')->with('success','Suppiler Updated');
+
+
     }
 
     /**
@@ -79,6 +119,9 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supplier = suppliers::find($id);
+        $supplier-> delete();
+        return redirect('/supplier')->with('success','Post  Removed');
+
     }
 }
