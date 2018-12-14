@@ -17,7 +17,7 @@
     <!-- Theme style -->
     {{Html::style('dist/css/AdminLTE.min.css')}}
 
-    {{Html::style('dist/css/skins/skin-blue.min.css')}}
+    {{Html::style('dist/css/skins/skin-black-light.min.css')}}
 
     <!-- data tables -->
     {{Html::style('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}
@@ -40,7 +40,7 @@
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black-light sidebar-mini">
 <div class="wrapper">
 
     @include('inc.navbar')
