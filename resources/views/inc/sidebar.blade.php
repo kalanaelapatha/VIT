@@ -14,8 +14,8 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/vehicles">Vehicles</a></li>
-                    <li><a href="/vehicles/create">Add a Vehicle</a></li>
-                    <li><a href="/events">Expirations</a></li>
+                    <li><a href="/vehicles/create"> <i class="fa fa-puzzle-piece"></i><span> Add a Vehicle </span> </a></li>
+                    <li><a href="/events"><i class="fa fa-hourglass-start"></i>  <span>Expirations</span></a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -25,12 +25,12 @@
               </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/suppliers/create">Add Supplier</a></li>
-                    <li><a href="/suppliers">View Suppliers</a></li>
+                    <li><a href="/suppliers/create"><i class="fa fa-users"></i> <span>Add Suppliers</span></a></li>
+                    <li><a href="/suppliers"><i class="fa fa-eye"></i> <span> View Suppliers</span></a></li>
 
                 </ul>
             </li>
-            <li><a href="/settings"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+            <li><a href="/settings">  <i class="fa fa-cog"></i> <span>Settings</span>  </a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
