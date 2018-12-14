@@ -36,11 +36,11 @@
                         </div>
                     </div>
                 @else
-                   <center> <h4 class="text-red">You need a supplier to add a vehicle</h4></center>
+                   <center> <p class="text-red">You need a supplier to add a vehicle</p></center>
                     <br>
                 @endif
 
-                @if(count($types)>0)
+                @if(count($brands)>0)
                     <div class="form-group">
                         {{Form::label('brand_id','Brand',['class'=>'col-sm-2 control-label']) }}
                         <div class="col-sm-8">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 @else
-                    <center> <h4 class="text-red">You need a brand to add a vehicle</h4></center>
+                    <center> <p class="text-red">You need a brand to add a vehicle</p></center>
                     <br>
                 @endif
 
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 @else
-                    <center> <h4 class="text-red">You need a Types to add a vehicle</h4></center>
+                    <center> <p class="text-red">You need a Types to add a vehicle</p></center>
                     <br>
                 @endif
 
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 @else
-                    <center> <h4 class="text-red">You need a Sub types to add a vehicle</h4></center>
+                    <center> <p class="text-red">You need a Sub types to add a vehicle</p></center>
                     <br>
                 @endif
 

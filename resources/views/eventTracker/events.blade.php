@@ -27,10 +27,10 @@
             <div class="col-md-4">
                 <div class="box box-info">
                     <div class="box-body">
-                        <a href="/events" class="btn btn-default btn-sm"><span class="fa fa-angle-double-right"></span>All Events</a>
-                        <a href="/fitnessevents" class="btn btn-primary btn-sm"><span class="fa fa-angle-double-right"></span>Fitness Expiration</a>
-                        <a href="/insuranceevents" class="btn btn-danger btn-sm"><span class="fa fa-angle-double-right"></span>Insurance Expiration</a>
-                        <a href="/licensevents" class="btn btn-warning btn-sm"><span class="fa fa-angle-double-right"></span>Licence Expiration</a>
+                        <a href="/events" class="btn btn-block btn-default btn-sm"> All Events</a>
+                        <a href="/fitnessevents" class="btn btn-block btn-primary btn-sm"> Fitness Expiration</a>
+                        <a href="/insuranceevents" class="btn btn-block btn-danger btn-sm"> Insurance Expiration</a>
+                        <a href="/licensevents" class="btn btn-block btn-warning btn-sm"> Licence Expiration</a>
                     </div>
                 </div>
             </div>
