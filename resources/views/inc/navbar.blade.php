@@ -41,15 +41,7 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Messages: style can be found in dropdown.less-->
 
-                <!-- /.messages-menu -->
-
-                <!-- Notifications Menu -->
-
-                <!-- Tasks Menu -->
-              
-                <!-- User Account Menu -->
 
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
