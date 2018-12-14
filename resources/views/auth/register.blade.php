@@ -6,7 +6,7 @@
     <div class="row center-block">
         <div class="col-md-offset-2 col-md-8">
             <br><br><br><br><br><br>
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading">{{ __('Register') }}</div>
 
                 <div class="panel-body">

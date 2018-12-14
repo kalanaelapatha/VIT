@@ -9,12 +9,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    {{Html::style('bower_components/bootstrap/dist/css/bootstrap.min.css')}}
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+    {{Html::style('bower_components/font-awesome/css/font-awesome.min.css')}}
     <!-- Ionicons -->
-    <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+    {{Html::style('bower_components/Ionicons/css/ionicons.min.css')}}
+    <!-- Theme style -->
+    {{Html::style('dist/css/AdminLTE.min.css')}}
+
+    {{Html::style('dist/css/skins/skin-black-light.min.css')}}
     <!-- Theme style -->
    <!-- <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">  -->
 
@@ -27,7 +30,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
- <body class="hold-transition skin-blue layout-top-nav">
+ <body class="hold-transition skin-black-light layout-top-nav">
 
 
  <!-- <body class="hold-transition skin-black-light sidebar-mini"> -->
@@ -56,9 +59,9 @@
     <footer class="main-footer">
         <div class="container">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.0
+                <!--<b>Version</b> 2.4.0-->
             </div>
-            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">VIT</a>.</strong> All rights
             reserved.
         </div>
         <!-- /.container -->
