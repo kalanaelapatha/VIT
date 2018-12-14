@@ -25,7 +25,7 @@
 <!-- bootstrap datepicker -->
     {{Html::style('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}
 
-
+    @yield('styles')
 
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

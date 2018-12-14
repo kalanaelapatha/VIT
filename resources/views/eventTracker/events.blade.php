@@ -1,0 +1,44 @@
+@extends('layouts.dashboard')
+
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+@endsection
+
+@section('header')
+    <h1>
+        Up coming Expirations
+        <small>Licences,Fittness and Servies expirations</small>
+    </h1>
+@endsection
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <br>
+                        {!! $calendar->calendar() !!}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <a href="/events" class="btn btn-default btn-sm"><span class="fa fa-angle-double-right"></span>All Events</a>
+                        <a href="/fitnessevents" class="btn btn-primary btn-sm"><span class="fa fa-angle-double-right"></span>Fitness Expiration</a>
+                        <a href="/insuranceevents" class="btn btn-danger btn-sm"><span class="fa fa-angle-double-right"></span>Insurance Expiration</a>
+                        <a href="/licensevents" class="btn btn-warning btn-sm"><span class="fa fa-angle-double-right"></span>Licence Expiration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('page_JavaScrips')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    {!! $calendar->script() !!}
+@endsection

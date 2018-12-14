@@ -15,7 +15,7 @@
                 <ul class="treeview-menu">
                     <li><a href="/vehicles">Vehicles</a></li>
                     <li><a href="/vehicles/create">Add a Vehicle</a></li>
-                    <li><a href="#">Service Tracker</a></li>
+                    <li><a href="/events">Expirations</a></li>
                 </ul>
             </li>
             <li class="treeview">
