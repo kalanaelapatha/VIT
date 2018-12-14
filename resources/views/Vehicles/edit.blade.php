@@ -44,9 +44,13 @@
                         {{Form::label('brand_id','Brand',['class'=>'col-sm-2 control-label']) }}
                         <div class="col-sm-8">
                             <select class="form-control" id="brand_id" name="brand_id">
-                                <option selected="selected" disabled>Select a Brand</option>
+                                <option disabled>Select a Brand</option>
                                 @foreach($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    <option
+                                            @if($brand->id== $vehicle->brand_id )
+                                            selected="selected"
+                                            @endif
+                                            value="{{$brand->id}}">{{$brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>

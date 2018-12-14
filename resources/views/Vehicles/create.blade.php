@@ -40,26 +40,6 @@
                     <br>
                 @endif
 
-                @if(count($suppliers)>0)
-                    <div class="form-group">
-                        {{Form::label('supplier_id','Supplier',['class'=>'col-sm-2 control-label']) }}
-                        <div class="col-sm-8">
-                            <select class="form-control" id="supplier_id" name="supplier_id">
-                                <option selected="selected" disabled>Select a supplier</option>
-                                @foreach($suppliers as $supplier)
-                                    <option value="{{$supplier->id}}">{{$supplier->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                @else
-                    <center> <h4 class="text-red">You need a supplier to add a vehicle</h4></center>
-                    <br>
-                @endif
-
-
-
-
                 @if(count($types)>0)
                     <div class="form-group">
                         {{Form::label('brand_id','Brand',['class'=>'col-sm-2 control-label']) }}

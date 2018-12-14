@@ -99,9 +99,10 @@ class VehiclesController extends Controller
     {
         $vehicle= Vehicles::find($id);
         $suppliers=suppliers::all();
+        $brands=brands::all();
         $types=types::all();
         $subtypes=subtypes::all();
-        return view('Vehicles.edit')->with(['vehicle'=>$vehicle,'suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes]);
+        return view('Vehicles.edit')->with(['vehicle'=>$vehicle,'suppliers'=>$suppliers,'types'=>$types,'subtypes'=>$subtypes,'brands'=>$brands]);
 
     }
 
@@ -121,7 +122,8 @@ class VehiclesController extends Controller
             'fitness_expairy' => 'required',
             'supplier_id' => 'required',
             'subtype_id'=>'required',
-            'type_id'=>'required'
+            'type_id'=>'required',
+            'brand_id'=>'required'
         ]);
 
 
