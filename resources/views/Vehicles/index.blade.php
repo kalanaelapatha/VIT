@@ -23,6 +23,7 @@
                         <th>Licence Expiry Date</th>
                         <th>Insurance Expiry Date</th>
                         <th>Fitness Expiry Date</th>
+                        <th>Service Expiry Date</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                             <td>{{$vehicle->insurance_expairy}}</td>
                             <td>{{$vehicle->licence_expairy}}</td>
                             <td>{{$vehicle->fitness_expairy}}</td>
+                            <td>{{$vehicle->service_expiration}}</td>
                             <td>
                                 <a href = "/vehicles/{!! $vehicle->id !!}/edit" class= " btn btn-link" > Edit </a>
                                 {!!Form::open(['action' => ['VehiclesController@destroy', $vehicle->id],'method'=>'POST','class' => 'pull-right'])!!}

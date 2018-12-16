@@ -52,7 +52,9 @@ class VehiclesController extends Controller
             'supplier_id' => 'required',
             'subtype_id'=>'required',
             'type_id'=>'required',
-            'supplier_id'=>'required'
+            'supplier_id'=>'required',
+            'service_expiration'=>'required',
+
         ]);
 
 
@@ -63,6 +65,8 @@ class VehiclesController extends Controller
         $vehicle->type_id=$request->input('type_id');
         $vehicle->subtype_id=$request->input('subtype_id');
 
+        $vehicle->service_expiration=$request->input('service_expiration');
+
         $inputdateInsurance=date("Y-m-d",strtotime($request->input('insurance_expairy')));
         $vehicle->insurance_expairy=$inputdateInsurance;
 
@@ -71,6 +75,10 @@ class VehiclesController extends Controller
 
         $inputdateFitness=date("Y-m-d",strtotime($request->input('fitness_expairy')));
         $vehicle->fitness_expairy=$inputdateFitness;
+
+        $inputdateService=date("Y-m-d",strtotime($request->input('service_expiration')));
+        $vehicle->service_expiration=$inputdateService;
+
         $vehicle->save();
 
         return redirect('vehicles')->with('success','Vehicle Added');
@@ -123,7 +131,8 @@ class VehiclesController extends Controller
             'supplier_id' => 'required',
             'subtype_id'=>'required',
             'type_id'=>'required',
-            'brand_id'=>'required'
+            'brand_id'=>'required',
+            'service_expiration'=>'required'
         ]);
 
 
@@ -143,6 +152,10 @@ class VehiclesController extends Controller
 
         $inputdateFitness=date("Y-m-d",strtotime($request->input('fitness_expairy')));
         $vehicle->fitness_expairy=$inputdateFitness;
+
+        $inputdateService=date("Y-m-d",strtotime($request->input('service_expiration')));
+        $vehicle->service_expiration=$inputdateService;
+
         $vehicle->save();
 
         return redirect('vehicles')->with('success','Vehicle Updated');

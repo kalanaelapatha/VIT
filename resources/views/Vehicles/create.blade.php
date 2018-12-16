@@ -127,6 +127,18 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    {{ Form::label('service_expiration','Service Expairy Day' ,['class'=>'col-sm-2 control-label']) }}
+                    <div class="col-sm-8">
+                        <div class="input-group date">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" name="service_expiration" id="datepicker3">
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!-- /.box-body -->
 
@@ -156,5 +168,9 @@
         $('#datepicker2').datepicker({
             autoclose: true
         })
+        $('#datepicker3').datepicker({
+            autoclose: true
+        })
+
     </script>
 @endsection
