@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehicles;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use DB;
+use Carbon\Carbon;
+
 class EventController extends Controller
 {
     public function __construct()
@@ -61,9 +64,24 @@ class EventController extends Controller
                     ]
                 );
             }
+
+            foreach ($data as $key => $value) {
+                $SerivceExpiryEvents[] = Calendar::event(
+                    $value->vehicle_no,
+                    true,
+                    new \DateTime($value->service_expiration),
+                    new \DateTime($value->service_expiration.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#000034',
+                        'url' => 'vehicles\{$value->id}\edit',
+                    ]
+                );
+            }
         }
 
-        $events= array_merge($InsuranceExpiryEvents, $FitnessExpiryEvents,$LicencesExpiryEvents);
+        $events= array_merge($InsuranceExpiryEvents, $FitnessExpiryEvents,$LicencesExpiryEvents,$SerivceExpiryEvents);
         $calendar = Calendar::addEvents($events);
         return view('eventTracker.events', compact('calendar'));
     }
@@ -140,6 +158,43 @@ class EventController extends Controller
         }
         $calendar = Calendar::addEvents($FitnessExpiryEvents);
         return view('eventTracker.events', compact('calendar'));
+    }
+
+    public function indexServiceOnly()
+    {
+        $FitnessExpiryEvents = [];
+        $data = Vehicles::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $SerivceExpiryEvents[] = Calendar::event(
+                    $value->vehicle_no,
+                    true,
+                    new \DateTime($value->service_expiration),
+                    new \DateTime($value->service_expiration.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#000034',
+                        'url' => 'vehicles\{$value->id}\edit',
+                    ]
+                );
+            }
+
+        }
+        $calendar = Calendar::addEvents($SerivceExpiryEvents);
+        return view('eventTracker.events', compact('calendar'));
+    }
+
+    public function eventsListView()
+    {
+        $eventlist=Vehicles::where('service_expiration', '>=', Carbon::now()->startOfMonth())
+                   ->orwhere('insurance_expairy', '>=', Carbon::now()->startOfMonth())
+                   ->orwhere('licence_expairy', '>=', Carbon::now()->startOfMonth())
+                   ->orwhere('fitness_expairy', '>=', Carbon::now()->startOfMonth())->get();
+
+
+        return view('eventTracker.eventsList')->with('eventsList',$eventlist);
+
     }
 
 

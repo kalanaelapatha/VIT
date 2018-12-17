@@ -35,5 +35,7 @@ Route::get('events', 'EventController@index');
 Route::get('licensevents', 'EventController@indexLicenseOnly');
 Route::get('insuranceevents', 'EventController@indexInsurancesOnly');
 Route::get('fitnessevents', 'EventController@indexFittnessOnly');
+Route::get('serviceevents', 'EventController@indexServiceOnly');
+Route::get('eventsList', 'EventController@eventsListView');
 
 

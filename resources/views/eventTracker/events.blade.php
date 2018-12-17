@@ -31,6 +31,7 @@
                         <a href="/fitnessevents" class="btn btn-block btn-primary btn-sm"> Fitness Expiration</a>
                         <a href="/insuranceevents" class="btn btn-block btn-danger btn-sm"> Insurance Expiration</a>
                         <a href="/licensevents" class="btn btn-block btn-warning btn-sm"> Licence Expiration</a>
+                        <a href="/serviceevents" class="btn btn-block bg-navy btn-sm"> Service Expiration</a>
                     </div>
                 </div>
             </div>
