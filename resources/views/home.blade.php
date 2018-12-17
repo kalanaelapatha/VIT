@@ -73,4 +73,13 @@
                             <!-- ./col -->
                         </div>
 </div>
+
+
+
+    <div>
+
+        <img src="{{Auth::user()->image }}" class="img-circle">
+
+
+    </div>
 @endsection

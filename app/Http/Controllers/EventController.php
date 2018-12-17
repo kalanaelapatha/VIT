@@ -18,6 +18,7 @@ class EventController extends Controller
         $InsuranceExpiryEvents = [];
         $FitnessExpiryEvents = [];
         $LicencesExpiryEvents = [];
+        $SerivceExpiryEvents = [];
         $data = Vehicles::all();
         if($data->count()) {
             foreach ($data as $key => $value) {
@@ -162,7 +163,7 @@ class EventController extends Controller
 
     public function indexServiceOnly()
     {
-        $FitnessExpiryEvents = [];
+        $SerivceExpiryEvents = [];
         $data = Vehicles::all();
         if($data->count()) {
             foreach ($data as $key => $value) {
