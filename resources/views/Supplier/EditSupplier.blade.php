@@ -48,7 +48,7 @@
             <div class="box-footer">
 
                 {{Form::hidden('_method','PUT')}}
-                {{Form::submit('Update',['class'=>'btn btn-info pull-right"','name' => 'submitbutton', 'value' => 'save'])}}
+                {!!Form::submit('Update',['class'=>'btn btn-info pull-right"','name' => 'submitbutton', 'value' => 'save'])!!}
             </div>
 
             </div>
